@@ -7,6 +7,7 @@ public class ObstablePathing : MonoBehaviour
     //creates the list to store the waypoints
     [SerializeField] List<Transform> waypoints;
     [SerializeField] float moveSpeed = 2f;
+    [SerializeField] WaveConfig waveConfig;
 
     //stores in which waypoint the obstacle is
     int waypointIndex = 0;
@@ -17,6 +18,9 @@ public class ObstablePathing : MonoBehaviour
     {
         //set start position of obstacle to Waypoint (0)
         transform.position = waypoints[waypointIndex].transform.position;
+
+        //call the method GetWaypoints()
+        waypoints = waveConfig.GetWaypoints();
     }
 
     // Update is called once per frame

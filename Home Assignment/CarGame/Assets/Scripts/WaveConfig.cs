@@ -15,30 +15,31 @@ public class WaveConfig : ScriptableObject
     //Obstacle Movement Speed
     [SerializeField] float ObstacleSpeed = 2f;
 
-    //Number of ubstacles per wave
+    //Number of obstacles per wave
     [SerializeField] int numberOfObstacles = 5;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float TimeBetweenSpawns = 4f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Start is called before the first frame update
 
     public GameObject GetObstaclePrefab()
     {
         return obstaclePrefab;
     }
 
-    public GameObject GetPathPrefab()
+    public List<Transform> GetWaypoints()
     {
-        return pathPrefab;
+        var waves = new List<Transform>();
+
+        //add each child that is in the pathPrefabs to the List waves
+        foreach (Transform child in pathPrefab.transform)
+        {
+            waves.Add(child);
+        }
+
+        return waves;
     }
+
 
     public int GetNumberOfObstacles()
     {
@@ -50,5 +51,8 @@ public class WaveConfig : ScriptableObject
         return ObstacleSpeed;
     }
 
-
+    public float GetTimeBetweenSpawns()
+    {
+        return TimeBetweenSpawns;
+    }
 }
