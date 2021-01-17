@@ -215,8 +215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19, y: -476}
-  m_SizeDelta: {x: 900, y: 86.779236}
+  m_AnchoredPosition: {x: 19, y: -315.8}
+  m_SizeDelta: {x: 900, y: 55.273743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422361552
 MonoBehaviour:
@@ -263,7 +263,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8983635722214166549, guid: 20cb32f5ae09bed42a682735edba79eb, type: 3}
         m_TargetAssemblyTypeName: Level, Assembly-CSharp
-        m_MethodName: LoadStart
+        m_MethodName: LoadGameOverScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -825,8 +825,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23, y: 205}
-  m_SizeDelta: {x: 690.7451, y: 113.5625}
+  m_AnchoredPosition: {x: 23, y: 239.4}
+  m_SizeDelta: {x: 690.7451, y: 200.66595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2054148324
 MonoBehaviour:
