@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float carSpeed = 10f;
+    [SerializeField] float playerHealth = 50f;
     [SerializeField] float padding = 0.5f;
     float Min_X, Max_X, Min_Y, Max_Y;
 
@@ -51,5 +52,25 @@ public class Player : MonoBehaviour
         Max_Y = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
 
     }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //access the Damage Dealer from the object that collided with the obstacle
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        //
+        playerHealth -= damageDealer.GetDamage();
+
+        if (playerHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 }
