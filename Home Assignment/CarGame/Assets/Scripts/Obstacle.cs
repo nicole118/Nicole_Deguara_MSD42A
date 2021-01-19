@@ -14,6 +14,17 @@ public class Obstacle : MonoBehaviour
     [SerializeField] GameObject obstableBulletPrefab;
     [SerializeField] float obstableBulletsSpeed = 0.3f;
 
+    //explosion particle
+    [SerializeField] GameObject deathEffect;
+    [SerializeField] float explosionTime;
+
+    //sound
+    [SerializeField] AudioClip obsstacleDieJingle;
+    [SerializeField] [Range(0, 1)] float obstacleDieJingleVolume = 0.75f;
+
+
+
+
     //reduces health when an obstacle collides with an object with Damage Dealer 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,7 +43,30 @@ public class Obstacle : MonoBehaviour
         obstacleBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -obstableBulletsSpeed);
     }
 
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        //destroy bullet
+        damageDealer.Hit();
+        //if health is less than 0
+        if (health <= 0)
+        {
+            //destroy obstacle & create explosion
+            Die();
+        }
+    }
+    private void Die()
+    {
+        //destroy obstacle
+        Destroy(gameObject);
 
+        AudioSource.PlayClipAtPoint(obsstacleDieJingle, Camera.main.transform.position, obstacleDieJingleVolume);
+
+        //create the explosion 
+        GameObject explosion = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //destroy after 1 sec
+        Destroy(explosion, 1f);
+    }
 
     private void CountDownShoot()
     {

@@ -53,24 +53,26 @@ public class Player : MonoBehaviour
 
     }
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         //access the Damage Dealer from the object that collided with the obstacle
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+
+        //if there is no damageDealer on Trigger
+        if (!damageDealer)
+        {
+            //end this method
+            return;
+        }
+
         ProcessHit(damageDealer);
     }
 
     private void ProcessHit(DamageDealer damageDealer)
     {
-        //
         playerHealth -= damageDealer.GetDamage();
-
-        if (playerHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
+        //destroy the obstacle bullet
+        damageDealer.Hit();
     }
 
-
-}
+    }

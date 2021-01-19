@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -43497126260752772}
   - component: {fileID: 954264562069025960}
   - component: {fileID: -7909445846486089769}
+  - component: {fileID: 4431879192766140391}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -145,3 +146,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount1: 1
+--- !u!114 &4431879192766140391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2620124378306130549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953efd42a91efa44c96315528268dd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  shotCounter: 0
+  minTimeBullets: 0.2
+  maxTimeBullets: 3
+  obstableBulletPrefab: {fileID: 0}
+  obstableBulletsSpeed: 0.3
+  deathEffect: {fileID: 0}
+  explosionTime: 0
+  obsstacleDieJingle: {fileID: 8300000, guid: 1a2e4dd4cbb718b4093f65e0e9029c73, type: 3}
+  obstacleDieJingleVolume: 0.75
