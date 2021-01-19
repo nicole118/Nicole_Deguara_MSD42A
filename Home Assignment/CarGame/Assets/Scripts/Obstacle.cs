@@ -22,8 +22,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField] AudioClip obsstacleDieJingle;
     [SerializeField] [Range(0, 1)] float obstacleDieJingleVolume = 0.75f;
 
-
-
+    [SerializeField] int scoreValue = 50;
 
     //reduces health when an obstacle collides with an object with Damage Dealer 
     private void OnTriggerEnter2D(Collider2D other)
@@ -66,6 +65,10 @@ public class Obstacle : MonoBehaviour
         GameObject explosion = Instantiate(deathEffect, transform.position, Quaternion.identity);
         //destroy after 1 sec
         Destroy(explosion, 1f);
+
+        //add score to GameSession score
+        FindObjectOfType<GameSessions>().AddToScore(scoreValue);
+
     }
 
     private void CountDownShoot()

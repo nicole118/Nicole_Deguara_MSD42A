@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] float carSpeed = 10f;
     [SerializeField] float playerHealth = 50f;
     [SerializeField] float padding = 0.5f;
-    float Min_X, Max_X, Min_Y, Max_Y;
+    float Min_Y, Max_Y, Min_X, Max_X;
 
     // Start is called before the first frame update
     void Start()

@@ -29,6 +29,10 @@ public class Level : MonoBehaviour
     {
         //loads the scene of the actual game
         SceneManager.LoadScene("CarGame");
+
+        //reset the game from the beginning
+        FindObjectOfType<GameSessions>().ResetGame();
+
     }
 
     public void LoadGameOver()

@@ -10,12 +10,6 @@ public class MusicPlay : MonoBehaviour
         SettingUpSingleton();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void SettingUpSingleton()
     {
         // if there is more than one music player object, destroy it
